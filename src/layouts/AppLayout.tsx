@@ -6,7 +6,8 @@ const AppLayout = () => {
   const theme = createTheme({
     palette:{
       text: {
-        primary: '#fff'
+        primary: '#fff',
+        secondary: '#a09ba8'
       }
     }
   });

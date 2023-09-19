@@ -11,15 +11,17 @@ type ButtonPrimaryProps = ButtonProps & {
 
 const ButtonPrimary = ({
   label = 'Learn more',
+  fullWidth = false,
   ...props
 } : ButtonPrimaryProps) => {
   return (
-    <MotionTopUp>
+    <MotionTopUp fullWidth={fullWidth}>
       <ButtonStyled 
-      size='large'
-      sx={{
-        ...buttonStyle
-      }} {...props}>
+        size='large'
+        fullWidth={true}
+        sx={{
+          ...buttonStyle
+        }} {...props}>
         <Text fontSize={'1em'} fontWeight={600}>{label}</Text> 
       </ButtonStyled>
     </MotionTopUp>

@@ -9,7 +9,7 @@ const CardDetail = () => {
         <Text noWrap textOverflow={'ellipsis'} fontWeight={600} variant='h6'>ICE Poker - The Stronghold</Text>
         <Text noWrap textOverflow={'ellipsis'} className=''>By <span>Decentral Games</span></Text>
       </div>
-      <ButtonPrimary className='button' style={{position: 'absolute'}} size='small' label='Jump in' sx={{
+      <ButtonPrimary className='button' size='small' label='Jump in' sx={{
         padding: '8px 4px',
         fontSize:' 13px',
         // lineHeight: '18px',
@@ -41,6 +41,5 @@ const CardDetailStyled = styled.div`
     button {
       right: 20px;
       position: relative;
-      bottom: 10px;
     }
 `;

@@ -7,6 +7,7 @@ import { Navigation, Pagination } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import useDetachScreen from '../../../../../hooks/useDetachScreen';
 
 const SwiperDescentralandPlaces = () => {
 
@@ -58,34 +59,40 @@ const SwiperDescentralandPlaces = () => {
     // },
   };
 
+  
   return (
     <CarouselStyled>
-    <Swiper
-      className='acccaa'
-      itemRef='haha'
-      modules={[Navigation, Pagination]}
-      pagination={pagination}
-      loop={true}
-      
-      navigation={{
-        nextEl: '.des-button-next',
-        prevEl: '.des-button-prev',
-        // disabledClass: 'swiper-button-disabled'
-      }}
-      slidesPerView={1.5}
-      spaceBetween={40}
-      centeredSlides={true}
-      >
-      
-        {places.map((o, index) => (
-          <SwiperSlide key={index}>
-            <div className='slide-group'>
-              <CardDecentraland/>
-              <CardDecentraland/>
-            </div>
-          </SwiperSlide>
-        ))}
-    </Swiper>
+      <Swiper
+        modules={[Navigation, Pagination]}
+        pagination={pagination}
+        loop={true}
+        
+        navigation={{
+          nextEl: '.des-button-next',
+          prevEl: '.des-button-prev',
+          // disabledClass: 'swiper-button-disabled'
+        }}
+        slidesPerView={1}
+        spaceBetween={10}
+        centeredSlides={true}
+
+        breakpoints= {{
+          1000: {
+            slidesPerView: 1.5,
+            spaceBetween: 30,
+          },
+        }}
+        >
+        
+          {places.map((o, index) => (
+            <SwiperSlide key={index}>
+              <div className='slide-group'>
+                <CardDecentraland/>
+                <CardDecentraland/>
+              </div>
+            </SwiperSlide>
+          ))}
+      </Swiper>
     <div className='swiper-button des-button-next'>
       <NextIcon/>
     </div>
@@ -134,7 +141,7 @@ const CarouselStyled = styled.div`
   .swiper-button {
     display: flex;
     position: absolute;
-    top: calc(50% - 12px);
+    top: calc(50% - 40px);
     z-index: 20;
     cursor: pointer;
     border: 1px solid ${COLOR_DIVIDER};
@@ -148,11 +155,11 @@ const CarouselStyled = styled.div`
   }
 
   .des-button-next {
-    right: 5px;
+    right: 50px;
   }
 
   .des-button-prev {
-    left: 5px;
+    left: 50px;
   }
 
   .swiper-button-disabled {

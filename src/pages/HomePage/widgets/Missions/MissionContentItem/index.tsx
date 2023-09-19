@@ -7,6 +7,7 @@ import { Box } from '@mui/material';
 import ButtonPrimary from '../../../../../components/Atom/Button/ButtonPrimary';
 import ButtonOutline from '../../../../../components/Atom/Button/ButtonOutline';
 import MotionTopUp from '../../../../../components/Atom/Motion/MotionTopUp';
+import useDetachScreen from '../../../../../hooks/useDetachScreen';
 
 type MissionContentItemProps = React.PropsWithRef<JSX.IntrinsicElements['div']> & { 
   animateControl: AnimationControls;
@@ -17,6 +18,7 @@ const MissionContentItem = ({ animateControl, children , ...props} : MissionCont
 
   const ref = useRef<any>(null);
   const isInView = useInView(ref, {amount: 0.6});
+  const isTablet = useDetachScreen('tablet');
 
   useEffect(() => {
     if(! isInView) {
@@ -26,13 +28,49 @@ const MissionContentItem = ({ animateControl, children , ...props} : MissionCont
     }
   },[isInView, animateControl]);  
 
+  if(isTablet) {
+    return (
+      <MissionContentItemStyled isTablet={isTablet} style={{marginTop: '100px'}} {...props} ref={ref}>
+        <Box display={'flex'} gap={4} flexDirection={'column'}>
+          <Box>
+            <MotionScrollVisible>
+              1
+            </MotionScrollVisible>
+            <MotionScrollVisible>
+              <Text className='tile'>Create</Text>
+            </MotionScrollVisible>
+          </Box>
+          {children}
+
+          <div>
+            
+            <MotionScrollVisible>
+              <Text className='subtitle'>
+                Decentraland is a world built by YOU where the only limit is your imagination. Create and sell Wearables & Emotes, construct captivating scenes and interactive experiences, or set up a personal space in your own World.
+              </Text> 
+            </MotionScrollVisible>
+            <Box width={'100%'}>
+              <ButtonPrimary fullWidth={true} className='button-create' label='Experiences & scenes'/>
+              <MotionTopUp fullWidth={true}>
+                <ButtonOutline fullWidth={true} label='Wearable & emotes'/>
+              </MotionTopUp>
+            </Box>
+          </div>
+        </Box>
+
+      </MissionContentItemStyled>
+    );
+  }
+
   return (
-    <MissionContentItemStyled 
-    {...props} ref={ref}>
-      <Box display={'flex'} gap={4}>
+    <MissionContentItemStyled isTablet={isTablet} {...props} ref={ref}>
+      <Box display={'flex'} gap={4} flexDirection={'row'}>
+
         <MotionScrollVisible>
           1
         </MotionScrollVisible>
+        {children}
+
         <div>
           <MotionScrollVisible>
             <Text className='tile'>Create</Text>
@@ -57,13 +95,14 @@ const MissionContentItem = ({ animateControl, children , ...props} : MissionCont
 
 export default MissionContentItem;
 
-const MissionContentItemStyled = styled.div`
+const MissionContentItemStyled = styled.div<{isTablet: boolean}>`
   font-weight: 700;
   font-size: 46px;
   display: flex;
+  flex-direction: column;
   align-items: start;
-  /* height: 90vh; */
-  /* gap: 50px; */
+  height: ${props => props.isTablet ? '100%' : '100vh'};
+  gap: ${props => props.isTablet ? '0px' : '50px'};
   align-items: center;
 
   .tile {

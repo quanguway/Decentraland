@@ -9,6 +9,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { COLOR_DIVIDER } from '../../../../assets/colors';
 import { useState } from 'react';
+import useDetachScreen, { theme } from '../../../../hooks/useDetachScreen';
+import ButtonOutline from '../../../../components/Atom/Button/ButtonOutline';
+import MotionTopUp from '../../../../components/Atom/Motion/MotionTopUp';
+import { Theme } from '@mui/material';
 
 const WhatNew = () => {
 
@@ -41,13 +45,14 @@ const WhatNew = () => {
     },
   ];
 
+  const isTablet = useDetachScreen('tablet');
+
   return (
-    <WhatNewStyled>
-      <Text variant='h3'>What{'\''}s new?</Text>
+    <WhatNewStyled theme={theme}>
+      <Text mb={4} fontWeight={600}  variant='h3'>What{'\''}s new?</Text>
       <Swiper
         className='what-news'
         itemRef='what-news'
-        style={{height: '270px'}}
         modules={[Navigation]}
         onSlideChange={(value) => {setSwiper(value.activeIndex);}}
         // pagination={{
@@ -65,15 +70,22 @@ const WhatNew = () => {
         }}
         slidesPerView={2}
         spaceBetween={30}
+
+        breakpoints={{
+          1100: {
+            slidesPerView: 4,
+            spaceBetween: 30
+
+          }
+        }}
       >
-      
         {whatNews.map((o, index) => (
           <SwiperSlide key={index}>
             <CardWhatNews {...o} />
           </SwiperSlide>
         ))}
     </Swiper>
-    <div className='control'>
+    {isTablet && <div className='control' style={{margin: '24px 0px'}} >
       <div className='swiper-progressbar'>
         <span className='swiper-progressbar-fill' style={{transform: `translateX(${swiper*100}%)`}}>
         </span>
@@ -84,19 +96,21 @@ const WhatNew = () => {
       <div className='swiper-button news-button-next'>
         <NextIcon/>
       </div>
-    </div>
+    </div>}
+      <MotionTopUp >
+        <ButtonOutline label='See All Posts' />
+      </MotionTopUp>
     </WhatNewStyled>
   );
 };
 
 export default WhatNew;
 
-const WhatNewStyled = styled.div`
+const WhatNewStyled = styled.div<{theme: Theme}>`
 
   padding: 0px 100px;
-
-  .swiper {
-    height: 350px !important;
+  ${props => props.theme.breakpoints.down('lg')} {
+    padding: 0px 20px;
   }
 
   .swiper-button {

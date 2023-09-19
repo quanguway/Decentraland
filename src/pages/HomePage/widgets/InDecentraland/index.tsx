@@ -7,6 +7,7 @@ import ButtonOutline from '../../../../components/Atom/Button/ButtonOutline';
 import CardDecentraland from '../../../../components/Molecule/CardDecentraland';
 import SwiperDescentralandPlaces from './SwiperDescentraland/Places';
 import Text from '../../../../components/Atom/Text';
+import useDetachScreen from '../../../../hooks/useDetachScreen';
 
 
 type TabPanelProps = {
@@ -32,17 +33,8 @@ const InDecentraland = () => {
     };
   }
 
-  
+  const isTablet = useDetachScreen('tablet');
 
-  const TabMotion = ({label, index} : {label: string, index: number}) => {
-    return (
-      <Tab className={'tab'} label={<>
-        <MotionTopUp>
-            {label}
-        </MotionTopUp>
-      </>} {...a11yProps(index)}/>
-    );
-  };
 
   function CustomTabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
@@ -66,8 +58,8 @@ const InDecentraland = () => {
   }
 
   return (
-    <InDecentralandStyled>
-      <Text fontSize={'18px'} fontWeight={600} style={{padding: '0px 100px', color: '#a09ba8'}}>In Decentraland</Text> 
+    <InDecentralandStyled isTablet={isTablet}>
+      <Text fontSize={'18px'} fontWeight={600} style={{ padding: isTablet ? '0px 30px' : '0px 100px', color: '#a09ba8' }}>In Decentraland</Text> 
       <div className='tabs-container'>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           {/* <TabMotion label='Places' index={0} /> */}
@@ -79,15 +71,17 @@ const InDecentraland = () => {
             </>} {...a11yProps(1)}/>
           ))}
           </Tabs>
-          <MotionTopUp>
-            <ButtonOutline label='SEE ALL PLACES'/>
-          </MotionTopUp>
+          { !isTablet && <MotionTopUp>
+              <ButtonOutline label='SEE ALL PLACES'/>
+            </MotionTopUp>
+          } 
       </div>
     <CustomTabPanel value={value} index={0}>
       <SwiperDescentralandPlaces/>
     </CustomTabPanel>
     <CustomTabPanel value={value} index={1}>
-      Item Two
+    <SwiperDescentralandPlaces/>
+
     </CustomTabPanel>
     </InDecentralandStyled>
   );
@@ -95,14 +89,14 @@ const InDecentraland = () => {
 
 export default InDecentraland;
 
-const InDecentralandStyled = styled(Box)`
+const InDecentralandStyled = styled(Box)<{isTablet: boolean}>`
   color: ${COLOR_TEXT};
   margin-top: 64px;
 
   .tabs-container {
     display: flex;
     justify-content: space-between;
-    padding: 0px 100px;
+    padding: ${props => props.isTablet ? '0px 30px' : '0px 100px'} ;
     gap: 20px;
 
 

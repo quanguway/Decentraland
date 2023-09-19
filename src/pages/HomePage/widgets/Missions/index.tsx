@@ -23,10 +23,13 @@ const Missions = () => {
               <MissionCreateIcon animateControl={animteControl1}/>
             </MissionContentItem>
 
-            <MissionExperienceIcon animateControl={animteControl2}/>
-            <MissionContentItem animateControl={animteControl2} />
+            <MissionContentItem animateControl={animteControl2} > 
+              <MissionExperienceIcon animateControl={animteControl2}/> 
+            </MissionContentItem>
+            <MissionContentItem animateControl={animteControl3} >
             <MissionInfluenceIcon animateControl={animteControl3}/>
-            <MissionContentItem animateControl={animteControl3} />
+
+            </MissionContentItem>
         {/* </div>
         <div className="mission-image">
           <div className='mission-image-container'>

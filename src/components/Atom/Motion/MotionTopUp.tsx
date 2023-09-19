@@ -3,10 +3,12 @@ import { MotionProps, motion } from 'framer-motion';
 
 type MotionTopUpProps = MotionProps & {
   children: React.ReactNode;
+  fullWidth?: boolean;
 }
-const MotionTopUp = ({children} : MotionTopUpProps) => {
+const MotionTopUp = ({children, fullWidth} : MotionTopUpProps) => {
   return (
     <MotionTopUpStyled
+      style={{width: fullWidth ? '100%' : 'fit-content'}}
       whileHover={{
         transform: 'translate(0px, -5px)'
       }}

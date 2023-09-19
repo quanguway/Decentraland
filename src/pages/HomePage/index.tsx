@@ -8,6 +8,7 @@ import WhatNew from './widgets/WhatNew';
 import AskedQuestion from './widgets/AskedQuestion';
 import Footer from './widgets/Footer';
 import MotionScrollVisible from '../../components/Atom/Motion/MotionScrollVisible';
+import { Box } from '@mui/material';
 
 const HomePage = () => {
   return (
@@ -20,9 +21,15 @@ const HomePage = () => {
       <MotionScrollVisible>
         <WhatNew />
       </MotionScrollVisible>
-      <BannerIntroduce />
-      <Missions />
-      <AskedQuestion />
+      <Box mt={8}>
+        <BannerIntroduce />
+      </Box>
+      <Box mt={12}>
+        <Missions />
+      </Box>
+      <Box my={10}>
+        <AskedQuestion />
+      </Box>
       <Footer />
     </HomePageStyled>
   );
