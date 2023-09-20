@@ -1,21 +1,19 @@
 import styled from '@emotion/styled';
-import MotionScale from '../../Atom/Motion/MotionScale';
-import { motion, useAnimation } from 'framer-motion';
 import CardStat from './CardStat';
 import CardDetail from './CardDetail';
 import CardMotionScaleBg from '../../Atom/Motion/CardMotionScaleBg';
+import { PlacesType } from '../../../pages/HomePage/widgets/InDecentraland/SwiperDescentraland/Places';
 
-const CardDecentraland = () => {
+const CardDecentraland = ({...props}: PlacesType) => {
 
-  const animate = useAnimation();
-
+  const {background, userCount} = props;
   return (
     <CardDecentralandStyled className='card-place' style={{
       
     }}>
-      <CardMotionScaleBg bgUrl='https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'>
-        <CardStat count={85}/>
-        <CardDetail />
+      <CardMotionScaleBg bgUrl={background}>
+        <CardStat count={userCount}/>
+        <CardDetail {...props} />
       </CardMotionScaleBg>
     </CardDecentralandStyled>
   );

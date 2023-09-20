@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useInView, useAnimate, useAnimation, MotionProps } from 'framer-motion';
+import { motion, useInView, useAnimation, MotionProps } from 'framer-motion';
 
 
 type MotionScrollVisibleProps = MotionProps & {

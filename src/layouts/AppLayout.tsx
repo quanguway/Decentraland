@@ -14,7 +14,7 @@ const AppLayout = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Outlet/>
+        <Outlet/>
     </ThemeProvider>
 
   );

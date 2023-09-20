@@ -1,5 +1,4 @@
 import {motion} from 'framer-motion';
-import { useState } from 'react';
 
 const MotionClickRotate = ({children, isActive, onClick}: {children: React.ReactNode, isActive: boolean, onClick?: () => void}) => {
 

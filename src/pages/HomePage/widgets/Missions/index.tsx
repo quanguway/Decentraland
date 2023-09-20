@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import MissionContentItem from './MissionContentItem';
-import { useEffect, useRef } from 'react';
-import { AnimationControls, motion, useAnimation, useInView } from 'framer-motion';
+import { AnimationControls, motion, useAnimation } from 'framer-motion';
 import useDetachScreen from '../../../../hooks/useDetachScreen';
 
 
@@ -18,7 +17,6 @@ const Missions = () => {
   if( isTablet) {
     return (
       <MissionsTabletStyled>
-        {/* <div className="misstion-content"> */}
             <MissionContentItem animateControl={animteControl1} >
               <MissionCreateIcon animateControl={animteControl1}/>
             </MissionContentItem>
@@ -103,8 +101,6 @@ const MissionsStyled = styled.div`
 
   .mission__svg {
     position: absolute;
-    /* width: 30rem;
-    height: 30rem; */
   }
 
 `;

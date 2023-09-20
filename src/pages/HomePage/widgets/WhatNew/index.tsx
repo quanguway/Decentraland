@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Text from '../../../../components/Atom/Text';
-import {Swiper, SwiperProps, SwiperSlide} from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import { Navigation } from 'swiper';
 import { NextIcon, PrevIcon } from '../CarouselVideo';
 import CardWhatNews from './CardWhatNews';
 
@@ -55,23 +55,19 @@ const WhatNew = () => {
         itemRef='what-news'
         modules={[Navigation]}
         onSlideChange={(value) => {setSwiper(value.activeIndex);}}
-        // pagination={{
-        //   type: 'progressbar',
-        //   el: '.swiper-pagination-progressbar'
-        //   // renderCustom: function (swiper, current, total) {
-        //   //   const progressBarHtml = '<div class='progressbar'><div class='progressbar-fill' style='width:' + (current / total) * 100 + '%'></div></div>';
-        //   //   return progressBarHtml;
-        //   // }        
-        // }}
         navigation={{
           nextEl: '.control .news-button-next',
           prevEl: '.control .news-button-prev',
           disabledClass: 'swiper-button-disabled'
         }}
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={30}
 
         breakpoints={{
+          730: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
           1100: {
             slidesPerView: 4,
             spaceBetween: 30
@@ -146,11 +142,17 @@ const WhatNewStyled = styled.div<{theme: Theme}>`
   }
 
   .swiper-progressbar-fill {
+
     width: 50%;
     background-color: #fff;
     height: 100%;
     position: absolute;
     transition: transform .2s ease-out;
+
+    ${props => props.theme.breakpoints.down('sm')} {
+      width: 25%;
+      
+    }
   }
 
   .news-button-next {

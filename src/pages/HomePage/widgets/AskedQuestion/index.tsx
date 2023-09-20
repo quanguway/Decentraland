@@ -1,11 +1,9 @@
 import styled from '@emotion/styled';
-import { Box, Card, CardContent, Collapse, IconButton, IconButtonProps, List, ListItem } from '@mui/material';
+import { Box, Theme } from '@mui/material';
 import Text from '../../../../components/Atom/Text';
-import MotionClickRotate from '../../../../components/Atom/Motion/MotionClickRotate';
 import { COLOR_PRIMARY, COLOR_TEXT } from '../../../../assets/colors';
-import { useState } from 'react';
 import CardAskedQuestion from './CardAskedQuestion';
-import useDetachScreen from '../../../../hooks/useDetachScreen';
+import useDetachScreen, { theme } from '../../../../hooks/useDetachScreen';
 import ButtonOutline from '../../../../components/Atom/Button/ButtonOutline';
 import MotionTopUp from '../../../../components/Atom/Motion/MotionTopUp';
 
@@ -13,11 +11,6 @@ export type AskedQuestionData = {
   title: string;
   description: string;
 }
-
-type ExpandMoreProps = IconButtonProps & {
-  expand: boolean;
-}
-
 
 const askedQuestionData: AskedQuestionData[] = [
   {
@@ -55,7 +48,7 @@ const AskedQuestion = () => {
   const isTablet = useDetachScreen('tablet');
 
   return (
-    <AskedQuestionStyled>
+    <AskedQuestionStyled theme={theme}>
       <div className='background'>
           <Box padding={'36px 0 100px'} margin={'auto'} display={'flex'} flexDirection={'column'} alignItems={'center'} width={'100%'} justifyContent={'center'} maxWidth={'1000px'} gap={3}>
               <Text 
@@ -65,7 +58,7 @@ const AskedQuestion = () => {
                 sx={{
                   color: '#a09ba8',
                 }} variant='h3'>Learn more about Decentraland</Text>
-              <Text fontSize={'36px'} fontWeight={700}  variant='h2'>Frequently Asked Questions</Text>
+              <Text fontSize={isTablet ? '24px' : '36px'} fontWeight={isTablet ? 600 : 700} textAlign={'center'} variant='h2'>Frequently Asked Questions</Text>
 
               {askedQuestionData.map((o, index) => (
                   <CardAskedQuestion key={index} {...o} />
@@ -81,7 +74,7 @@ const AskedQuestion = () => {
 
 export default AskedQuestion;
 
-const AskedQuestionStyled = styled.div`
+const AskedQuestionStyled = styled.div<{theme: Theme}>`
   .background {
     background: linear-gradient(to right,${COLOR_TEXT} 4px,transparent 4px) 0 0,linear-gradient(to right,${COLOR_TEXT} 4px,transparent 4px) 0 100%,linear-gradient(to left,${COLOR_TEXT} 4px,transparent 4px) 100% 0,linear-gradient(to left,${COLOR_TEXT} 4px,transparent 4px) 100% 100%,linear-gradient(to bottom,${COLOR_TEXT} 4px,transparent 4px) 0 0,linear-gradient(to bottom,${COLOR_TEXT} 4px,transparent 4px) 100% 0,linear-gradient(to top,${COLOR_TEXT} 4px,transparent 4px) 0 100%,linear-gradient(to top,${COLOR_TEXT} 4px,transparent 4px) 100% 100%;
     background-repeat: no-repeat;
@@ -97,6 +90,10 @@ const AskedQuestionStyled = styled.div`
     border-radius: 56px;
     /* background-image: linear-gradient(90deg,#43404a,#691fa9); */
 
+    ${props => props.theme.breakpoints.down('sm')} {
+      padding: 14px 20px 14px 30px;
+    }
+
     width: 90%;
 
     &:hover {
@@ -110,7 +107,12 @@ const AskedQuestionStyled = styled.div`
       font-weight: 300;
       line-height: 28px;
       margin: auto 0;
+      font-weight: 600;
       vertical-align: middle;
+
+      ${props => props.theme.breakpoints.down('lg')} {
+        font-size: 18px;
+      }
     }
   }
   .description {

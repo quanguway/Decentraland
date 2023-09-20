@@ -1,8 +1,6 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player';
 import styled from '@emotion/styled';
-import ArrowNextIcon from '../../../../assets/icons/ArrowNextIcon';
 import { COLOR_DIVIDER, COLOR_PRIMARY, COLOR_TEXT } from '../../../../assets/colors';
 import { Swiper, SwiperSlide } from 'swiper/react'; 
 import { Navigation, Pagination, Scrollbar } from 'swiper';
@@ -11,7 +9,7 @@ import ButtonPrimary from '../../../../components/Atom/Button/ButtonPrimary';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Theme, createTheme, useMediaQuery } from '@mui/material';
+import { Theme, useMediaQuery } from '@mui/material';
 import { theme } from '../../../../hooks/useDetachScreen';
 // import 'swiper/css/navigation';
 
@@ -65,15 +63,14 @@ const CarouselVideo = () => {
     <CarouselStyled>
       <Swiper
         style={{ cursor: 'pointer'}}
-        className='sosss'
         modules={[Navigation, Pagination, Scrollbar]}
         pagination={pagination}
 
         // navigation
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          // disabledClass: 'swiper-button-disabled'
+          nextEl: '.carousel-button-next',
+          prevEl: '.carousel-button-prev',
+          // disabledClass: 'carousel-button-disabled'
         }}
         slidesPerView={1}
         >
@@ -100,10 +97,10 @@ const CarouselVideo = () => {
           ))}
       </Swiper>
       { isTablet && <>
-        <div className='swiper-button swiper-button-next'>
+        <div className='carousel-button carousel-button-next'>
           <NextIcon/>
         </div>
-        <div className='swiper-button swiper-button-prev'>
+        <div className='carousel-button carousel-button-prev'>
           <PrevIcon/>
         </div>
       </>
@@ -140,7 +137,7 @@ const CarouselStyled = styled.div`
     }
   }
 
-  .swiper-button {
+  .carousel-button {
     display: flex;
     position: absolute;
     top: calc(50% - 150px);
@@ -156,19 +153,19 @@ const CarouselStyled = styled.div`
     }
   }
 
-  .swiper-button-next {
+  .carousel-button-next {
     right: 5px;
   }
 
-  .swiper-button-prev {
+  .carousel-button-prev {
     left: 5px;
   }
 
-  .swiper-button-disabled {
+  .carousel-button-disabled {
     opacity: 0.5;
   }
 
-  /* .swiper-button-prev, .swiper-button-next {
+  /* .carousel-button-prev, .carousel-button-next {
     background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4JyBoZWlnaHQ9JzE0JyB2aWV3Qm94PScwIDAgOCAxNCc+PGcgZmlsbD0nbm9uZScgZmlsbC1ydWxlPSdldmVub2RkJz48cGF0aCBkPSdNMC01aDh2MjRIMHonLz48cGF0aCBmaWxsPScjRkZGJyBkPSdtMCA3IDYuMzc5IDYuMjI4YS45NjYuOTY2IDAgMCAwIDEuMzQzIDAgLjkxMi45MTIgMCAwIDAgMC0xLjMxTDIuNjg2IDdsNS4wMzYtNC45MTdhLjkxMi45MTIgMCAwIDAgMC0xLjMxMS45NjYuOTY2IDAgMCAwLTEuMzQzIDBMMCA3eicvPjwvZz48L3N2Zz4=');
     background-position-x: 10px;
     background-position-y: 9px;

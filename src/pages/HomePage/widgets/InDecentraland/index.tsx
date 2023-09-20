@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
-import { Box, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
 import MotionTopUp from '../../../../components/Atom/Motion/MotionTopUp';
 import { COLOR_TEXT } from '../../../../assets/colors';
 import ButtonOutline from '../../../../components/Atom/Button/ButtonOutline';
-import CardDecentraland from '../../../../components/Molecule/CardDecentraland';
 import SwiperDescentralandPlaces from './SwiperDescentraland/Places';
 import Text from '../../../../components/Atom/Text';
 import useDetachScreen from '../../../../hooks/useDetachScreen';
@@ -80,8 +79,7 @@ const InDecentraland = () => {
       <SwiperDescentralandPlaces/>
     </CustomTabPanel>
     <CustomTabPanel value={value} index={1}>
-    <SwiperDescentralandPlaces/>
-
+      <SwiperDescentralandPlaces/>
     </CustomTabPanel>
     </InDecentralandStyled>
   );

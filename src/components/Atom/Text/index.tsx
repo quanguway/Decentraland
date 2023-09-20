@@ -1,4 +1,4 @@
-import { Typography, TypographyProps, withStyles } from '@mui/material';
+import { Typography, TypographyProps } from '@mui/material';
 
 type TextProps = TypographyProps & {
   children: React.ReactNode;

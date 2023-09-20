@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import CardMotionScaleBg from '../../../../../components/Atom/Motion/CardMotionScaleBg';
 import Text from '../../../../../components/Atom/Text';
 import { Box, TypographyProps } from '@mui/material';
 import { motion, useAnimation } from 'framer-motion';

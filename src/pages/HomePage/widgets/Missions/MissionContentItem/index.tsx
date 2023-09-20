@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import MotionScrollVisible from '../../../../../components/Atom/Motion/MotionScrollVisible';
-import React, { ReactPropTypes, useEffect, useRef } from 'react';
-import { AnimationControls, motion, useAnimation, useInView } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { AnimationControls, useInView } from 'framer-motion';
 import Text from '../../../../../components/Atom/Text';
 import { Box } from '@mui/material';
 import ButtonPrimary from '../../../../../components/Atom/Button/ButtonPrimary';

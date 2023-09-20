@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import { log } from 'console';
-import { once } from 'events';
-import { useScroll, useTransform, motion, useMotionValueEvent, useInView, useAnimate, useAnimation, delay } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
 import MotionScrollVisible from '../../../../components/Atom/Motion/MotionScrollVisible';
+import { Theme } from '@mui/material';
+import { theme } from '../../../../hooks/useDetachScreen';
+import { motion } from 'framer-motion';
 
 
 const BannerIntroduce = () => {
@@ -49,7 +48,7 @@ const BannerIntroduce = () => {
   // };
 
   return (
-    <BannerIntroduceStyled >
+    <BannerIntroduceStyled theme={theme}>
       <div className='content'>
         {groupText.map((s, index) => (
           <MotionScrollVisible key={index} transition={{delay: index/30, duration: 0.5}}>
@@ -64,7 +63,7 @@ const BannerIntroduce = () => {
 
 export default BannerIntroduce;
 
-const BannerIntroduceStyled = styled(motion.div)`
+const BannerIntroduceStyled = styled(motion.div)<{theme: Theme}>`
   position: relative;
   .background {
     height: 784px;
@@ -82,5 +81,9 @@ const BannerIntroduceStyled = styled(motion.div)`
     font-size: clamp(2.75rem,5.2vw + .475rem,4.375rem);
     /* font-weight: 700; */
     width: 80%;
+
+    ${props => props.theme.breakpoints.down('xs')} {
+      transform: translate(10%, 20%);
+    }
   }
 `;

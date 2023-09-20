@@ -1,17 +1,27 @@
 import styled from '@emotion/styled';
 import CardDecentraland from '../../../../../components/Molecule/CardDecentraland';
-import { COLOR_DIVIDER, COLOR_PRIMARY, COLOR_TEXT } from '../../../../../assets/colors';
+import { COLOR_DIVIDER, COLOR_PRIMARY } from '../../../../../assets/colors';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { NextIcon, PrevIcon } from '../../CarouselVideo';
 import { Navigation, Pagination } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import useDetachScreen from '../../../../../hooks/useDetachScreen';
+import useDetachScreen, { theme } from '../../../../../hooks/useDetachScreen';
+import MotionTopUp from '../../../../../components/Atom/Motion/MotionTopUp';
+import ButtonOutline from '../../../../../components/Atom/Button/ButtonOutline';
+import { Theme } from '@mui/material';
 
+export type PlacesType = {
+  title: string;
+  by: string;
+  userCount: number;
+  background: string;
+}
 const SwiperDescentralandPlaces = () => {
 
-  const places = [
+
+  const places: PlacesType[] = [
     {
       title: 'ICE Poker - The Stronghold',
       by: 'Decentral Games',
@@ -19,36 +29,31 @@ const SwiperDescentralandPlaces = () => {
       background: 'https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'
     },
     {
-      title: 'ICE Poker - The Stronghold',
-      by: 'Decentral Games',
-      userCount: 71,
-      background: 'https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'
+      title: 'Meta GamiMall ',
+      by: 'Meta Live Studio',
+      userCount: 32,
+      background: 'https://peer.decentraland.org/content/contents/bafkreigqxm67dlimfk56cajjsjvvcreniks2utbiklqc22pji3cqh36qc4'
     },{
-      title: 'ICE Poker - The Stronghold',
-      by: 'Decentral Games',
-      userCount: 71,
-      background: 'https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'
+      title: 'WonderMine Crafting Game',
+      by: 'WonderZone',
+      userCount: 2,
+      background: 'https://api.decentraland.org/v2/map.png?height=1024&width=1024&selected=-25%2C55%3B-25%2C56%3B-25%2C57%3B-25%2C58%3B-25%2C59%3B-25%2C60%3B-25%2C61%3B-25%2C62%3B-26%2C55%3B-26%2C56%3B-26%2C57%3B-26%2C58%3B-26%2C59%3B-26%2C60%3B-26%2C61%3B-26%2C62%3B-27%2C55%3B-27%2C56%3B-27%2C57%3B-27%2C58%3B-27%2C59%3B-27%2C60%3B-27%2C61%3B-27%2C62%3B-28%2C55%3B-28%2C56%3B-28%2C57%3B-28%2C58%3B-28%2C59%3B-28%2C60%3B-28%2C61%3B-28%2C62%3B-29%2C55%3B-29%2C56%3B-29%2C57%3B-29%2C58%3B-29%2C59%3B-29%2C60%3B-29%2C61%3B-29%2C62&center=-27%2C58&size=20'
     },{
-      title: 'ICE Poker - The Stronghold',
-      by: 'Decentral Games',
-      userCount: 71,
-      background: 'https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'
+      title: 'GolfCraft minigolf',
+      by: 'OhMyVerse',
+      userCount: 12,
+      background: 'https://peer.decentraland.org/content/contents/bafkreiavp4qhn2kzyfto524pcb3otefprzqy5mjl6e347jhacxhzmnjqwe'
     },{
-      title: 'ICE Poker - The Stronghold',
-      by: 'Decentral Games',
+      title: 'Genesis Plaza',
+      by: 'Decentraland Foundation',
       userCount: 71,
-      background: 'https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'
+      background: 'https://peer.decentraland.org/content/contents/bafybeientwwufhkn6yyfgehqqg64rp2u4pxkqfwsgfj2kldvarretredlm'
     },{
-      title: 'ICE Poker - The Stronghold',
-      by: 'Decentral Games',
+      title: 'Butterfly Prawn Farming Game',
+      by: 'ButterflyPrawn',
       userCount: 71,
-      background: 'https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'
-    },{
-      title: 'ICE Poker - The Stronghold',
-      by: 'Decentral Games',
-      userCount: 71,
-      background: 'https://peer.decentraland.org/content/contents/bafybeif7b6dxt6p4i6iwpjfaq7dy4ihjqrqlhsrx6swym6rl6l55kswzg4'
-    },
+      background: 'https://peer.decentraland.org/content/contents/bafkreiacfw2ukumqaim77k2co7j2yjog522d35ptxyfw32xqvuobw7etdi'
+    }
   ];
 
   const pagination = {
@@ -59,9 +64,19 @@ const SwiperDescentralandPlaces = () => {
     // },
   };
 
+  const isMobile = useDetachScreen('mobile');
+  const isTablet = useDetachScreen('tablet');
+
+  // const renderGroup = () => {
+  //   cosnt
+
+  // }
+
+  console.log(isMobile);
   
+
   return (
-    <CarouselStyled>
+    <CarouselStyled theme={theme}>
       <Swiper
         modules={[Navigation, Pagination]}
         pagination={pagination}
@@ -79,38 +94,57 @@ const SwiperDescentralandPlaces = () => {
         breakpoints= {{
           1000: {
             slidesPerView: 1.5,
-            spaceBetween: 30,
+            spaceBetween: 20,
           },
         }}
         >
         
-          {places.map((o, index) => (
-            <SwiperSlide key={index}>
+          {places.map((o, index, arr) => {
+            if(!isMobile ? index % 2 === 0 : 
+              index % 1 === 0) {
+
+            return <SwiperSlide key={index}>
               <div className='slide-group'>
-                <CardDecentraland/>
-                <CardDecentraland/>
+                <CardDecentraland {...arr[index]}/>
+                {!isMobile && <CardDecentraland {...arr[index+1]}/>}
               </div>
-            </SwiperSlide>
-          ))}
+            </SwiperSlide>;
+            } else {
+              return;
+            }
+
+          })}
       </Swiper>
-    <div className='swiper-button des-button-next'>
-      <NextIcon/>
-    </div>
-    <div className='swiper-button des-button-prev'>
-      <PrevIcon/>
-    </div>
+      {!isMobile && <>
+        <div className='swiper-button des-button-next'>
+          <NextIcon/>
+        </div>
+        <div className='swiper-button des-button-prev'>
+          <PrevIcon/>
+        </div>
+      </>}
+      {isTablet && <MotionTopUp >
+        <ButtonOutline style={{marginTop: '32px'}} label='See All Places'/>
+        </MotionTopUp>}
   </CarouselStyled>
   );
 };
 
 export default SwiperDescentralandPlaces;
 
-const CarouselStyled = styled.div`
+const CarouselStyled = styled.div<{theme: Theme}>`
+  overflow: hidden;
+  .swiper {
+    ${props => props.theme.breakpoints.up('lg')} {
+      left: -14%;
+      width: 128%;
+      height: 450px;
+    }
+  }
   position: relative;
   .swiper-pagination {
     display: flex;
     justify-content: center;
-    /* gap: 4px; */
     width: fit-content;
     .swiper-pagination-bullet {
       background: #fff;
@@ -118,6 +152,7 @@ const CarouselStyled = styled.div`
       cursor: pointer;
       height: 3px;
       opacity: .5;
+      width: 20px;
 
       /* left: 50%; */
       /* transform: translateX(-50%); */
@@ -141,7 +176,7 @@ const CarouselStyled = styled.div`
   .swiper-button {
     display: flex;
     position: absolute;
-    top: calc(50% - 40px);
+    top: calc(50% - 120px);
     z-index: 20;
     cursor: pointer;
     border: 1px solid ${COLOR_DIVIDER};
@@ -152,6 +187,10 @@ const CarouselStyled = styled.div`
     &:hover {
       border-color: white;
     }
+  }
+
+  .swiper-slide {
+    /* margin-right: 135px !important; */
   }
 
   .des-button-next {

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import MotionScale from '../../Atom/Motion/MotionScale';
 import { motion, useAnimation } from 'framer-motion';
 import { Box, BoxProps } from '@mui/material';
 

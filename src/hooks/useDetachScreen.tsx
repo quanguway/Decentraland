@@ -3,7 +3,7 @@ import { createTheme, useMediaQuery } from '@mui/material';
 export const theme = createTheme({
   breakpoints: {
     values: {
-      xs: 0,
+      xs: 570,
       sm: 730,
       md: 900,
       lg: 1100,

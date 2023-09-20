@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Button, ButtonProps } from '@mui/material';
-import { COLOR_PRIMARY, COLOR_TEXT } from '../../../assets/colors';
+import { COLOR_PRIMARY } from '../../../assets/colors';
 import { buttonStyle } from './styles';
 import MotionTopUp from '../Motion/MotionTopUp';
 import Text from '../Text';

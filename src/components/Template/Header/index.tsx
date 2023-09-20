@@ -4,9 +4,8 @@ import NavItem from './NavItem';
 import Text from '../../Atom/Text';
 import ButtonPrimary from '../../Atom/Button/ButtonPrimary';
 import { useEffect, useRef, useState } from 'react';
-import { animate, motion, useAnimation, useInView, useScroll } from 'framer-motion';
-import { Box, Collapse, createTheme, duration, useMediaQuery, useScrollTrigger, useTheme } from '@mui/material';
-import { COLOR_TEXT } from '../../../assets/colors';
+import {  motion, useAnimation } from 'framer-motion';
+import { Box, Collapse, useMediaQuery, useScrollTrigger } from '@mui/material';
 import MotionClickRotate from '../../Atom/Motion/MotionClickRotate';
 import NavItemMobile from './NavItemMobile';
 import { theme } from '../../../hooks/useDetachScreen';
@@ -83,10 +82,7 @@ const Header = () => {
     const mainControls = useAnimation();
 
     const isTablet = useMediaQuery(theme.breakpoints.up('md'));
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
-    console.log(isMobile);
-    
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));    
 
     const trigger = useScrollTrigger({
       disableHysteresis: true,
@@ -103,27 +99,29 @@ const Header = () => {
     if(isMobile)
       return (
         <HeaderStyledMobile 
-          style={{ backgroundColor: mobileExpand ? '#000' : 'transparent' }}
           ref={headerRef} 
-          // variants={{
-        //   transparent: {backgroundColor :'transparent'},
-        //   fill: {backgroundColor: '#000'}
-        // }}
+          variants={{
+          transparent: {backgroundColor : 'transparent'},
+          fill: {backgroundColor: '#000'}
+        }}
         initial={'transparent'}
         animate={mainControls} transition={{duration: 0.3}}>
-          <Box display={'flex'} gap={2} alignItems={'center'}>
-            <a className="navbar-logo" href="https://decentraland.org"><i className="dcl logo"></i></a>
-            <MotionClickRotate onClick={() => setMobileExpand( ! mobileExpand)} isActive={mobileExpand}>
-              <ArrowIcon />
-            </MotionClickRotate>
+          <Box padding={!isMobile ? '30px 20px 0px' : '0px'} width={'100%'} sx={{backgroundColor: mobileExpand ? '#000' : 'transparent !important'}}>
+
+            <Box display={'flex'} gap={2} alignItems={'center'}>
+              <a className="navbar-logo" href="https://decentraland.org"><i className="dcl logo"></i></a>
+              <MotionClickRotate onClick={() => setMobileExpand( ! mobileExpand)} isActive={mobileExpand}>
+                <ArrowIcon />
+              </MotionClickRotate>
+            </Box>
+            <Collapse in={mobileExpand}>
+              <ul className='nav-menu'>
+                  {headers.map((o, index) => (
+                    <NavItemMobile key={index} data={o}/>
+                  ))}
+                </ul>
+            </Collapse>
           </Box>
-          <Collapse in={mobileExpand}>
-            <ul className='nav-menu'>
-                {headers.map((o, index) => (
-                  <NavItemMobile key={index} data={o}/>
-                ))}
-              </ul>
-          </Collapse>
         </HeaderStyledMobile>
       );
     
@@ -161,7 +159,7 @@ const Header = () => {
 export default Header;
 
 const HeaderStyledMobile = styled(motion.nav)`
-    padding: 30px 20px 0px;
+    /* padding: 30px 20px 0px; */
     width: 100%;
     position: absolute;
     top: 0;

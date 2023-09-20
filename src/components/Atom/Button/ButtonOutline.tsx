@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Button, ButtonProps } from '@mui/material';
-import { COLOR_PRIMARY, COLOR_TEXT } from '../../../assets/colors';
+import { COLOR_TEXT } from '../../../assets/colors';
 import { buttonStyle } from './styles';
 
 type ButtonOutlineProps = ButtonProps & {

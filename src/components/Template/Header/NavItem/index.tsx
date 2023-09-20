@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { Divider, List, ListItem, ListItemButton, ListItemText, Popover, Tooltip, Typography, makeStyles } from '@mui/material';
-import { MouseEvent, useState } from 'react';
+import { Divider, List, ListItemButton, ListItemText } from '@mui/material';
 import { TNavMenu } from '..';
 import Text from '../../../Atom/Text';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
@@ -20,28 +19,6 @@ const NavItem = ({data}: TNavMenuProps) => {
     variant: 'popover',
     popupId: 'demoPopover',
   });
-
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [openedPopover, setOpenedPopover] = useState(false);
-  // const [selectedIndex, setSelectedIndex] = useState(1);
-
-  const handlePopoverOpen = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  // const handlePopoverOpen = () => {
-  //   setOpenedPopover(true);
-  // };
-
-  // const handlePopoverClose = () => {
-  //   setOpenedPopover(false);
-  // };
-
-  // setTimeout(handlePopoverClose, 1000);    
 
   return (
     <NavItemStyled>

@@ -1,16 +1,20 @@
 import styled from '@emotion/styled';
 import ButtonPrimary from '../../Atom/Button/ButtonPrimary';
 import Text from '../../Atom/Text';
+import { PlacesType } from '../../../pages/HomePage/widgets/InDecentraland/SwiperDescentraland/Places';
 
-const CardDetail = () => {
+const CardDetail = ({...props}: PlacesType) => {
+
+  const { by, title } = props;
+
   return (
     <CardDetailStyled>
       <div className='content'>
-        <Text noWrap textOverflow={'ellipsis'} fontWeight={600} variant='h6'>ICE Poker - The Stronghold</Text>
-        <Text noWrap textOverflow={'ellipsis'} className=''>By <span>Decentral Games</span></Text>
+        <Text noWrap textOverflow={'ellipsis'} fontWeight={600} variant='h6'>{title}</Text>
+        <Text noWrap textOverflow={'ellipsis'} className=''>By <span>{by}</span></Text>
       </div>
       <ButtonPrimary className='button' size='small' label='Jump in' sx={{
-        padding: '8px 4px',
+        padding: '14px 20px',
         fontSize:' 13px',
         // lineHeight: '18px',
         // minWidth: '128px',
