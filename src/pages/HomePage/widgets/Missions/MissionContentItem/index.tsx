@@ -104,6 +104,7 @@ const MissionContentItemStyled = styled.div<{isTablet: boolean}>`
   height: ${props => props.isTablet ? '100%' : '100vh'};
   gap: ${props => props.isTablet ? '0px' : '50px'};
   align-items: center;
+  padding: 0px 20px;
 
   .tile {
     display: inline;

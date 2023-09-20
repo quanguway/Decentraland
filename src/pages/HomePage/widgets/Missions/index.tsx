@@ -12,8 +12,6 @@ const Missions = () => {
 
   const isTablet = useDetachScreen('tablet');
 
-  console.log(isTablet);
-
   if( isTablet) {
     return (
       <MissionsTabletStyled>
