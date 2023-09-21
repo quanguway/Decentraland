@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import ButtonPrimary from '../../Atom/Button/ButtonPrimary';
 
 const CardStat = ({count}: {count: number}) => {
   return (

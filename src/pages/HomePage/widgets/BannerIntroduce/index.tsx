@@ -83,7 +83,7 @@ const BannerIntroduceStyled = styled(motion.div)<{theme: Theme}>`
     width: 80%;
 
     ${props => props.theme.breakpoints.down('xs')} {
-      transform: translate(10%, 20%);
+      font-size: clamp(1.75rem,2.2vw,3.375rem);
     }
   }
 `;

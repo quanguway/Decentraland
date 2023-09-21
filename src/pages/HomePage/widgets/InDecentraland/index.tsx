@@ -7,6 +7,7 @@ import ButtonOutline from '../../../../components/Atom/Button/ButtonOutline';
 import SwiperDescentralandPlaces from './SwiperDescentraland/Places';
 import Text from '../../../../components/Atom/Text';
 import useDetachScreen from '../../../../hooks/useDetachScreen';
+import SwiperDescentralandEvents from './SwiperDescentraland/Events';
 
 
 type TabPanelProps = {
@@ -79,7 +80,7 @@ const InDecentraland = () => {
       <SwiperDescentralandPlaces/>
     </CustomTabPanel>
     <CustomTabPanel value={value} index={1}>
-      <SwiperDescentralandPlaces/>
+      <SwiperDescentralandEvents/>
     </CustomTabPanel>
     </InDecentralandStyled>
   );
