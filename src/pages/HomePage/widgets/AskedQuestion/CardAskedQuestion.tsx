@@ -19,7 +19,7 @@ const CardAskedQuestion = ({title, description}: AskedQuestionData) => {
           <IconArrowToggle isActive={expand} />
         </MotionClickRotate>
       </Box>
-      <Collapse in={expand} timeout='auto' unmountOnExit>
+      <Collapse in={expand} timeout={800} unmountOnExit>
         <p className='description' dangerouslySetInnerHTML={{__html: description}}></p>
       </Collapse>
     </Box>

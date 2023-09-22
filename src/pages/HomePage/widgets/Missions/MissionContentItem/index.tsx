@@ -8,6 +8,7 @@ import ButtonPrimary from '../../../../../components/Atom/Button/ButtonPrimary';
 import ButtonOutline from '../../../../../components/Atom/Button/ButtonOutline';
 import MotionTopUp from '../../../../../components/Atom/Motion/MotionTopUp';
 import useDetachScreen from '../../../../../hooks/useDetachScreen';
+import { useTranslation } from 'react-i18next';
 
 type MissionContentItemProps = React.PropsWithRef<JSX.IntrinsicElements['div']> & { 
   animateControl: AnimationControls;
@@ -15,6 +16,8 @@ type MissionContentItemProps = React.PropsWithRef<JSX.IntrinsicElements['div']> 
  }
 
 const MissionContentItem = ({ animateControl, children , ...props} : MissionContentItemProps) => {
+
+  const { t } = useTranslation('homepage');
 
   const ref = useRef<any>(null);
   const isInView = useInView(ref, {amount: 0.6});
@@ -37,7 +40,7 @@ const MissionContentItem = ({ animateControl, children , ...props} : MissionCont
               1
             </MotionScrollVisible>
             <MotionScrollVisible>
-              <Text className='tile'>Create</Text>
+              <Text className='tile'>{t('mission.title')}</Text>
             </MotionScrollVisible>
           </Box>
           {children}
@@ -46,13 +49,13 @@ const MissionContentItem = ({ animateControl, children , ...props} : MissionCont
             
             <MotionScrollVisible>
               <Text className='subtitle'>
-                Decentraland is a world built by YOU where the only limit is your imagination. Create and sell Wearables & Emotes, construct captivating scenes and interactive experiences, or set up a personal space in your own World.
+                {t('mission.subtitle')}
               </Text> 
             </MotionScrollVisible>
             <Box width={'100%'}>
-              <ButtonPrimary fullWidth={true} className='button-create' label='Experiences & scenes'/>
+              <ButtonPrimary fullWidth={true} className='button-create' label={t('mission.button_label_primary')}/>
               <MotionTopUp fullWidth={true}>
-                <ButtonOutline fullWidth={true} label='Wearable & emotes'/>
+                <ButtonOutline fullWidth={true} label={t('mission.button_label_outline')}/>
               </MotionTopUp>
             </Box>
           </div>

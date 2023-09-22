@@ -1,0 +1,77 @@
+{
+  "header": {
+    "nav": {
+      "marketplace": "Marketplace",
+      "builder": "Builder",
+      "docs": "Docs",
+      "places": "Places",
+      "events": "Events",
+      "dao": "DAO",
+      "blog": "Blog"
+    },
+    "tool": {
+      "button_label_primary": "Join out discount",
+      "button_label_outline": "jump in"
+    }
+  },
+  "carousel": {
+    "subtitle": "Make new friends, explore diverse events, and spark your creativity in a virtual world built and owned by its community.",
+    "button_label": "Learn more"
+  },
+  "in_decentraland": {
+    "title": "In Decentraland",
+    "tab_place": "Places",
+    "tab_event": "Event",
+    "button_label": "See All Places"
+  },
+  "what_new": {
+    "title": "What's new?",
+    "button_label": "See All Post"
+  },
+  "banner_introduce": "Join a community of creators & explorers in a dynamic, virtual social world  owned and shaped by you.",
+  "mission": {
+    "title": "Create",
+    "subtitle": "Decentraland is a world built by YOU where the only limit is your imagination. Create and sell Wearables & Emotes, construct captivating scenes and interactive experiences, or set up a personal space in your own World.",
+    "button_label_primary": "Experiences & scenes",
+    "button_label_outline": "Wearable & emotes"
+  },
+  "trending": {
+    "title": "Make your ideas a reality in the metaverse. Find a team to build with.",
+    "button_label": "Browse Vetted studio"
+  },
+  "ask_question": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Learn more about Decentraland"
+  },
+  "footer": {
+    "lang": "English",
+    "title": "Stay updated with Decentraland",
+    "resource_title": "RESOURCES",
+    "resource": {
+      "marketplace": "Marketplace",
+      "builder": "Builder",
+      "docs": "Docs",
+      "places": "Places",
+      "events": "Events",
+      "dao": "DAO",
+      "blog": "Blog",
+      "faq": "FAQ"
+    },
+    "connect_title": "CONNECT",
+    "connect": {
+      "live_chat": "Live chat",
+      "email": "Email",
+      "discord": "Discord",
+      "reddit": "Reddit",
+      "twitter": "Twitter",
+      "github" : "Github"
+    },
+    "footer_main": {
+      "home": "Home",
+      "privacy_policy": "Privacy Policy",
+      "terms_of_use": "Terms of Use",
+      "content_policy": "Content Policy",
+      "code_of_ethics": "Code of Ethics"
+    }
+  } 
+}

@@ -8,6 +8,7 @@ import SwiperDescentralandPlaces from './SwiperDescentraland/Places';
 import Text from '../../../../components/Atom/Text';
 import useDetachScreen from '../../../../hooks/useDetachScreen';
 import SwiperDescentralandEvents from './SwiperDescentraland/Events';
+import { useTranslation } from 'react-i18next';
 
 
 type TabPanelProps = {
@@ -18,9 +19,11 @@ type TabPanelProps = {
 
 const InDecentraland = () => {
 
+  const {t} = useTranslation('homepage');
+
   const [value, setValue] = useState(0);
 
-  const tabs = ['Places', 'Events'];
+  const tabs = [t('in_decentraland.tab_place'), t('in_decentraland.tab_event')];
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -59,7 +62,7 @@ const InDecentraland = () => {
 
   return (
     <InDecentralandStyled isTablet={isTablet}>
-      <Text fontSize={'18px'} fontWeight={600} style={{ padding: isTablet ? '0px 30px' : '0px 100px', color: '#a09ba8' }}>In Decentraland</Text> 
+      <Text fontSize={'18px'} fontWeight={600} style={{ padding: isTablet ? '0px 30px' : '0px 100px', color: '#a09ba8' }}>{t('in_decentraland.title')}</Text> 
       <div className='tabs-container'>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           {/* <TabMotion label='Places' index={0} /> */}
@@ -72,7 +75,7 @@ const InDecentraland = () => {
           ))}
           </Tabs>
           { !isTablet && <MotionTopUp>
-              <ButtonOutline label='SEE ALL PLACES'/>
+              <ButtonOutline label={t('in_decentraland.button_label')}/>
             </MotionTopUp>
           } 
       </div>

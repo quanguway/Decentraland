@@ -3,16 +3,20 @@ import Text from '../../../../components/Atom/Text';
 import { List, ListItem } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { COLOR_TEXT } from '../../../../assets/colors';
+import { useTranslation } from 'react-i18next';
 
 const ColSocial = ({title, list}: { title: string, list: {label: string, link?: string}[] }) => {
+  const { t } = useTranslation('homepage');
+
+
   return (
     <ColSocialStyled>
       <List>
-      <Text className='title' variant='h2'>{title}</Text>
+      <Text className='title' variant='h2'>{t(title)}</Text>
         {list.map((o, index) => (
           <ListItem sx={{paddingLeft: 0}} key={index}>
             <NavLink className={'item'} to={o.link ?? '/'} >
-              {o.label} 
+              {t(o.label)} 
             </NavLink>
           </ListItem>
         ))}

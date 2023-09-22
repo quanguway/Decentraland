@@ -18,7 +18,7 @@ function AppUI() {
 
 function App() {
   return (
-    <AppUI />
+      <AppUI />
   );
 }
 

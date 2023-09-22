@@ -24,7 +24,8 @@ const videos = [
       }
     ],
     src: 'https://cms-videos.decentraland.org/ea2ybdmmn1kv/610dKEPsI3gVbx7JwKhEp7/e87a83a7e58bc5723459911193cde508/Hero_Video_2_8.mp4'
-  },{
+  },
+  {
     title: 'Decentraland',
     subtitle: 'Make new friends, explore diverse events, and spark your creativity in a virtual world built and owned by its community.',
     button: [
@@ -32,7 +33,7 @@ const videos = [
         label: 'Learn more',
       }
     ],
-    src: 'https://cms-videos.decentraland.org/ea2ybdmmn1kv/610dKEPsI3gVbx7JwKhEp7/e87a83a7e58bc5723459911193cde508/Hero_Video_2_8.mp4'
+    src: 'https://cms-videos.decentraland.org/ea2ybdmmn1kv/4onJ1IUZWR0ugw74Kx2v9b/b89ba75ba1fa28ce3e214df3f2a04ef6/SDK7_low.mp4'
   },
   {
     title: 'Decentraland',

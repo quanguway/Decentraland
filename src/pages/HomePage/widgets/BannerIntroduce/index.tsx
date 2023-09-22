@@ -3,49 +3,15 @@ import MotionScrollVisible from '../../../../components/Atom/Motion/MotionScroll
 import { Theme } from '@mui/material';
 import { theme } from '../../../../hooks/useDetachScreen';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 
 const BannerIntroduce = () => {
 
-  const introduceText = 'Join a community of creators & explorers in a dynamic, virtual social world  owned and shaped by you.';
+  const {t} = useTranslation('homepage');
+
+  const introduceText = t('banner_introduce');
   const groupText = introduceText.split(' ');
-  // const contentRef = useRef<any>(null);
-  // const mainControls = useAnimation();
-
-  // const isInView = useInView(contentRef, {once: true});
-
-  // useEffect(() => {
-  //   if(isInView) {
-  //     mainControls.start('visible');
-  //   }
-  // },[isInView]);
-
-
-  // const [hookedYPostion, setHookedYPosition] = useState(0);
-  // useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-  //   setHookedYPosition(latest);
-  // });
-  
-  // const opacity = useTransform(scrollYProgress, [0, 0], [0, 1]);
-
-  
-  
-
-  // const display = useTransform(scrollYProgress, (pos) => {
-  //   return pos === 1 ? 'none' : 'inline-block';
-  // });
-
-  // const container = {
-  //   transition: { ease: [0.17, 0.67, 0.83, 0.67] },
-  //   hidden: { opacity: 0 },
-  //   show: {
-  //     opacity: 1,
-  //     transition: {
-  //       duration: 2,
-  //       delayChildren: 0.5
-  //     }
-  //   }
-  // };
 
   return (
     <BannerIntroduceStyled theme={theme}>
@@ -65,9 +31,10 @@ export default BannerIntroduce;
 
 const BannerIntroduceStyled = styled(motion.div)<{theme: Theme}>`
   position: relative;
+  overflow: hidden;
   .background {
     height: 784px;
-    width: 100%;
+    /* width: 100%;  */
     /* object-fit: contain; */
   }
   .content {
@@ -83,7 +50,11 @@ const BannerIntroduceStyled = styled(motion.div)<{theme: Theme}>`
     width: 80%;
 
     ${props => props.theme.breakpoints.down('xs')} {
-      font-size: clamp(1.75rem,2.2vw,3.375rem);
+      transform: translate(10%, 30%);
+    }
+
+    ${props => props.theme.breakpoints.up('xl')} {
+      font-size: clamp(4.75rem,5.2vw,5.375rem);;
     }
   }
 `;

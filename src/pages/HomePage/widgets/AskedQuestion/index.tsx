@@ -6,6 +6,7 @@ import CardAskedQuestion from './CardAskedQuestion';
 import useDetachScreen, { theme } from '../../../../hooks/useDetachScreen';
 import ButtonOutline from '../../../../components/Atom/Button/ButtonOutline';
 import MotionTopUp from '../../../../components/Atom/Motion/MotionTopUp';
+import { useTranslation } from 'react-i18next';
 
 export type AskedQuestionData = {
   title: string;
@@ -44,6 +45,8 @@ const askedQuestionData: AskedQuestionData[] = [
 ];
 
 const AskedQuestion = () => {
+  const {t} = useTranslation('homepage');
+  const {t: commonLang} = useTranslation('common');
 
   const isTablet = useDetachScreen('tablet');
 
@@ -57,14 +60,14 @@ const AskedQuestion = () => {
                 text-transform={'uppercase'} 
                 sx={{
                   color: '#a09ba8',
-                }} variant='h3'>Learn more about Decentraland</Text>
-              <Text fontSize={isTablet ? '24px' : '36px'} fontWeight={isTablet ? 600 : 700} textAlign={'center'} variant='h2'>Frequently Asked Questions</Text>
+                }} variant='h3'>{t('ask_question.subtitle')}</Text>
+              <Text fontSize={isTablet ? '24px' : '36px'} fontWeight={isTablet ? 600 : 700} textAlign={'center'} variant='h2'>{t('ask_question.title')}</Text>
 
               {askedQuestionData.map((o, index) => (
                   <CardAskedQuestion key={index} {...o} />
               ))}
               <MotionTopUp>
-                <ButtonOutline label='See more'/>
+                <ButtonOutline label={commonLang('see_more')}/>
               </MotionTopUp>
           </Box>
       </div>

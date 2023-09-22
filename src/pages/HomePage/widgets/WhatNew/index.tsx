@@ -13,8 +13,11 @@ import useDetachScreen, { theme } from '../../../../hooks/useDetachScreen';
 import ButtonOutline from '../../../../components/Atom/Button/ButtonOutline';
 import MotionTopUp from '../../../../components/Atom/Motion/MotionTopUp';
 import { Theme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 const WhatNew = () => {
+
+  const {t} = useTranslation('homepage');
 
   const [swiper, setSwiper] = useState<any>();
 
@@ -49,7 +52,7 @@ const WhatNew = () => {
 
   return (
     <WhatNewStyled theme={theme}>
-      <Text mb={4} fontWeight={600}  variant='h3'>What{'\''}s new?</Text>
+      <Text mb={4} fontWeight={600}  variant='h3'>{t('what_new.title')}</Text>
       <Swiper
         className='what-news'
         itemRef='what-news'
@@ -94,7 +97,7 @@ const WhatNew = () => {
       </div>
     </div>}
       <MotionTopUp >
-        <ButtonOutline label='See All Posts' />
+        <ButtonOutline label={t('what_new.button_label')} />
       </MotionTopUp>
     </WhatNewStyled>
   );

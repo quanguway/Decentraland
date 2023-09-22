@@ -9,8 +9,12 @@ import AskedQuestion from './widgets/AskedQuestion';
 import Footer from './widgets/Footer';
 import MotionScrollVisible from '../../components/Atom/Motion/MotionScrollVisible';
 import { Box } from '@mui/material';
+import Trending from './widgets/Trending';
+import PieChart from './widgets/PieChart';
 
 const HomePage = () => {
+
+
   return (
     <HomePageStyled>
       <Header/>
@@ -27,9 +31,15 @@ const HomePage = () => {
       <Box mt={12}>
         <Missions />
       </Box>
+      <Box my={12}>
+        <MotionScrollVisible>
+          <Trending />
+        </MotionScrollVisible>
+      </Box>
       <Box my={10}>
         <AskedQuestion />
       </Box>
+      <PieChart/>
       <Footer />
     </HomePageStyled>
   );

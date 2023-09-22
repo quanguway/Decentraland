@@ -1,0 +1,77 @@
+{
+  "header": {
+    "nav": {
+      "marketplace": "市场",
+      "builder": "建设者",
+      "docs": "Docs",
+      "places": "地点",
+      "events": "活动",
+      "dao": "DAO",
+      "blog": "博客"
+    },
+    "tool": {
+      "button_label_primary": "加入折扣",
+      "button_label_outline": "跳入"
+    }
+  },
+  "carousel": {
+    "subtitle": "在由社区构建和拥有的虚拟世界中结交新朋友、探索各种活动并激发您的创造力。",
+    "button_label": "了解更多"
+  },
+  "in_decentraland": {
+    "title": "在 Decentraland",
+    "tab_place": "地点",
+    "tab_event": "事件",
+    "button_label": "查看所有地点"
+  },
+  "what_new": {
+    "title": "什么是新的？",
+    "button_label": "查看所有帖子"
+  },
+  "banner_introduce": "加入由您拥有和塑造的动态虚拟社交世界中的创作者和探索者社区。",
+  "mission": {
+    "title": "创造",
+    "subtitle": "Decentraland 是一个由您构建的世界，唯一的限制就是您的想象力。创建和销售可穿戴设备和表情，构建迷人的场景和互动体验，或者在您自己的世界中建立个人空间。",
+    "button_label_primary": "体验和场景",
+    "button_label_outline": "可穿戴和表情"
+  },
+  "trending": {
+    "title": "让您的想法在虚拟宇宙中成为现实。寻找一个可以一起构建的团队。",
+    "button_label": "浏览经过审查的工作室"
+  },
+  "ask_question": {
+    "title": "经常问的问题",
+    "subtitle": "了解有关 Decentraland 的更多信息"
+  },
+  "footer": {
+    "lang": "China",
+    "title": "随时了解 Decentraland 的最新动态",
+    "resource_title": "资源",
+    "resource": {
+      "marketplace": "市场",
+      "builder": "建设者",
+      "docs": "Docs",
+      "places": "地点",
+      "events": "活动",
+      "dao": "DAO",
+      "blog": "博客",
+      "faq": "FAQ"
+    },
+    "connect_title": "连接",
+    "connect": {
+      "live_chat": "在线聊天",
+      "email": "电子邮件",
+      "discord": "不和谐",
+      "reddit": "红迪网",
+      "twitter": "推特",
+      "github" : "吉图布"
+    },
+    "footer_main": {
+      "home": "家",
+      "privacy_policy": "隐私政策",
+      "terms_of_use": "使用条款",
+      "content_policy": "内容政策",
+      "code_of_ethics": "道德准则"
+    }
+  } 
+}

@@ -9,6 +9,7 @@ import { Box, Collapse, useMediaQuery, useScrollTrigger } from '@mui/material';
 import MotionClickRotate from '../../Atom/Motion/MotionClickRotate';
 import NavItemMobile from './NavItemMobile';
 import { theme } from '../../../hooks/useDetachScreen';
+import { useTranslation } from 'react-i18next';
 
 type TNavMenuChild = {
   label: string;
@@ -19,65 +20,67 @@ export type TNavMenu = {
   children?: TNavMenuChild[];
 }
 
-const headers: TNavMenu[]= [
-  {
-    title: 'Marketplace',
-    children: [
-      {
-        label: 'Overview'
-      },
-      {
-        label: 'Overview'
-      },
-      {
-        label: 'Overview'
-      }
-    ]
-  },
-  {
-    title: 'Builder',
-    children: [
-      {
-        label: 'Overview'
-      },
-      {
-        label: 'Overview'
-      },
-      {
-        label: 'Overview'
-      }
-    ]
-  },{
-    title: 'Doc',
-    children: [
-      {
-        label: 'Overview'
-      },
-      {
-        label: 'Overview'
-      },
-      {
-        label: 'Overview'
-      }
-    ]
-  },
-  {
-    title: 'places'
-  },
-  {
-    title: 'Event'
-  },
-  {
-    title: 'Dao'
-  },
-  {
-    title: 'Blog'
-  }
-];
 
 
 const Header = () => {
+
+    const {t} = useTranslation('homepage');
   
+    const headers: TNavMenu[]= [
+      {
+        title: t('header.nav.marketplace'),
+        children: [
+          {
+            label: 'Overview'
+          },
+          {
+            label: 'Overview'
+          },
+          {
+            label: 'Overview'
+          }
+        ]
+      },
+      {
+        title: t('header.nav.builder'),
+        children: [
+          {
+            label: 'Overview'
+          },
+          {
+            label: 'Overview'
+          },
+          {
+            label: 'Overview'
+          }
+        ]
+      },{
+        title: t('header.nav.doc'),
+        children: [
+          {
+            label: 'Overview'
+          },
+          {
+            label: 'Overview'
+          },
+          {
+            label: 'Overview'
+          }
+        ]
+      },
+      {
+        title: t('header.nav.places')
+      },
+      {
+        title: t('header.nav.events')
+      },
+      {
+        title: t('header.nav.dao')
+      },
+      {
+        title: t('header.nav.blog')
+      }
+    ];
     const headerRef = useRef<any>();
     const mainControls = useAnimation();
 
@@ -143,9 +146,9 @@ const Header = () => {
         </ul>
         { isTablet ? <ul className='nav-tool'>
           <Text 
-            className='title'>{'Join our Discount'}
+            className='title'>{t('header.tool.button_label_primary')}
           </Text>
-          <ButtonPrimary sx={{padding: '4px 12px'}} label='Jump in'/>
+          <ButtonPrimary sx={{padding: '4px 12px'}} label={t('header.tool.button_label_outline')}/>
         </ul> : 
             <DiscordStyled>              
               <img width="46" height="46" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjM1IDIwIDE3NSAyMDAiPgo8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTA0LjQgMTAzLjljLTUuNyAwLTEwLjIgNS0xMC4yIDExLjFzNC42IDExLjEgMTAuMiAxMS4xYzUuNyAwIDEwLjItNSAxMC4yLTExLjEuMS02LjEtNC41LTExLjEtMTAuMi0xMS4xek0xNDAuOSAxMDMuOWMtNS43IDAtMTAuMiA1LTEwLjIgMTEuMXM0LjYgMTEuMSAxMC4yIDExLjFjNS43IDAgMTAuMi01IDEwLjItMTEuMXMtNC41LTExLjEtMTAuMi0xMS4xeiIvPgo8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTg5LjUgMjBoLTEzNEM0NC4yIDIwIDM1IDI5LjIgMzUgNDAuNnYxMzUuMmMwIDExLjQgOS4yIDIwLjYgMjAuNSAyMC42aDExMy40bC01LjMtMTguNSAxMi44IDExLjkgMTIuMSAxMS4yIDIxLjUgMTlWNDAuNmMwLTExLjQtOS4yLTIwLjYtMjAuNS0yMC42em0tMzguNiAxMzAuNnMtMy42LTQuMy02LjYtOC4xYzEzLjEtMy43IDE4LjEtMTEuOSAxOC4xLTExLjktNC4xIDIuNy04IDQuNi0xMS41IDUuOS01IDIuMS05LjggMy41LTE0LjUgNC4zLTkuNiAxLjgtMTguNCAxLjMtMjUuOS0uMS01LjctMS4xLTEwLjYtMi43LTE0LjctNC4zLTIuMy0uOS00LjgtMi03LjMtMy40LS4zLS4yLS42LS4zLS45LS41LS4yLS4xLS4zLS4yLS40LS4zLTEuOC0xLTIuOC0xLjctMi44LTEuN3M0LjggOCAxNy41IDExLjhjLTMgMy44LTYuNyA4LjMtNi43IDguMy0yMi4xLS43LTMwLjUtMTUuMi0zMC41LTE1LjIgMC0zMi4yIDE0LjQtNTguMyAxNC40LTU4LjMgMTQuNC0xMC44IDI4LjEtMTAuNSAyOC4xLTEwLjVsMSAxLjJjLTE4IDUuMi0yNi4zIDEzLjEtMjYuMyAxMy4xczIuMi0xLjIgNS45LTIuOWMxMC43LTQuNyAxOS4yLTYgMjIuNy02LjMuNi0uMSAxLjEtLjIgMS43LS4yIDYuMS0uOCAxMy0xIDIwLjItLjIgOS41IDEuMSAxOS43IDMuOSAzMC4xIDkuNiAwIDAtNy45LTcuNS0yNC45LTEyLjdsMS40LTEuNnMxMy43LS4zIDI4LjEgMTAuNWMwIDAgMTQuNCAyNi4xIDE0LjQgNTguMyAwIDAtOC41IDE0LjUtMzAuNiAxNS4yeiIvPgo8L3N2Zz4=" />

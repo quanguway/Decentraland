@@ -70,10 +70,7 @@ const SwiperDescentralandEvents = () => {
   // const renderGroup = () => {
   //   cosnt
 
-  // }
-
-  console.log(isMobile);
-  
+  // }  
 
   return (
     <CarouselStyled theme={theme}>
@@ -135,10 +132,12 @@ export default SwiperDescentralandEvents;
 const CarouselStyled = styled.div<{theme: Theme}>`
   overflow: hidden;
   .swiper {
+
+    padding-bottom: 40px;
     ${props => props.theme.breakpoints.up('lg')} {
       left: -14%;
       width: 128%;
-      height: 450px;
+      height: auto;
     }
   }
   position: relative;
