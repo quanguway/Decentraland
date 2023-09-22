@@ -34,7 +34,9 @@ const BannerIntroduceStyled = styled(motion.div)<{theme: Theme}>`
   overflow: hidden;
   .background {
     height: 784px;
-    /* width: 100%;  */
+    ${props => props.theme.breakpoints.up('xl')} {
+      width: 100%; 
+    }
     /* object-fit: contain; */
   }
   .content {
