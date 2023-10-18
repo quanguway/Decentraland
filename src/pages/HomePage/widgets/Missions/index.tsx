@@ -105,8 +105,8 @@ const MissionsStyled = styled.div`
 
 const motionConfig = {
   variants: {
-    hidden: {scale: 0, opacity: 0},
-    visible: { scale: 1, opacity: 1 }
+    hidden: {scale: 0},
+    visible: { scale: 1}
   },
   initial: 'visible',
   transition: {duration: 0.5}
