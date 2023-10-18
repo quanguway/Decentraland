@@ -105,11 +105,11 @@ const MissionsStyled = styled.div`
 
 const motionConfig = {
   variants: {
-    hidden: { scale: 0 },
-    visible: { scale: 1}
+    hidden: { scale: 0, opacity: 0 },
+    visible: { scale: 1, opacity: 1}
   },
   initial: 'hidden',
-  transition: {duration: 0.5}
+  transition: {duration: 0.8}
 };
 
 const MissionCreateIcon = ({animateControl}: {animateControl: AnimationControls}) => {
