@@ -108,7 +108,7 @@ const motionConfig = {
     hidden: { scale: 0 },
     visible: { scale: 1}
   },
-  initial: 'visible',
+  initial: 'hidden',
   transition: {duration: 0.5}
 };
 
