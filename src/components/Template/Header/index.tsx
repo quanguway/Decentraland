@@ -55,7 +55,7 @@ const Header = () => {
           }
         ]
       },{
-        title: t('header.nav.doc'),
+        title: t('header.nav.docs'),
         children: [
           {
             label: 'Overview'

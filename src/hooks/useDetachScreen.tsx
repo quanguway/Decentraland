@@ -22,7 +22,6 @@ const useDetachScreen = (screen: 'desktop' | 'tablet' | 'mobile') => {
       return useMediaQuery(theme.breakpoints.down('sm'));
     default:
       return useMediaQuery(theme.breakpoints.up('xl'));
-
   } 
 };
 
